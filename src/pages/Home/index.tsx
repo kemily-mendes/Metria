@@ -1,4 +1,4 @@
-import { HeaderOverview } from './components/Header'
+import { HeaderOverview } from './components/HeaderHome'
 import { SummaryCards } from './components/SummaryCards'
 
 export function Home() {
