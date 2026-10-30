@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { LayoutGrid, PiggyBank } from 'lucide-react';
+import { LayoutGrid, PiggyBank, ArrowLeftRight } from 'lucide-react';
 
 export function Sidebar() {
     return (
@@ -33,6 +33,17 @@ export function Sidebar() {
                             <div className="flex items-center gap-3">
                                 <PiggyBank size={20}/>
                                 <span className="text-[14px]">Add Balance</span>
+                            </div>
+                            {isActive && <div className="w-1.5 h-1.5 rounded-full bg-[#63A0FF]"></div>}
+                        </>
+                    )}
+                </Link>
+                <Link to="/transactionHistory" activeProps={{className: "bg-[#1B426B]"}} className="flex justify-between items-center w-48 h-11 mx-5 rounded-lg px-3 text-white focus:outline-none">
+                    {({isActive}) => (
+                        <>
+                            <div className="flex items-center gap-3">
+                                <ArrowLeftRight size={20}/>
+                                <span className="text-[14px]">Transaction History</span>
                             </div>
                             {isActive && <div className="w-1.5 h-1.5 rounded-full bg-[#63A0FF]"></div>}
                         </>

@@ -12,11 +12,9 @@ export function HeaderOverview() {
                     A complete view of your finances, in one place.
                 </p>
             </div>
-            <div className="">
-                <Button icon={<Plus size={18} />}>
-                    Add balance
-                </Button>
-            </div>
+            <Button icon={<Plus size={18} />} bgColor="bg-[#2264E5]" textColor="text-[#fff]">
+                Add balance
+            </Button>
         </div>
     )
 }

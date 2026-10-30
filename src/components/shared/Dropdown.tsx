@@ -27,7 +27,7 @@ export function Dropdown({options, value, onChange, placeholder = "Select an opt
     return(
         <div className="relative">
             <button onClick={() => setIsOpen(!isOpen)} className="flex items-center justify-between w-full h-12 px-3.5 py-2.5 rounded-[10px] border border-[#D7DFEA] focus:outline-none">
-                <div className="flex items-center gap-2.5 w-157.5 h.7">
+                <div className="flex items-center gap-2.5 h-7">
                     {value ? renderIcon(value) : null}
                     <span className={`w-auto text-[13px] font-semibold ${value ? "" : "text-[#98A2B3]"}`}>{value ? value.label : placeholder}</span>
                 </div>
@@ -35,7 +35,7 @@ export function Dropdown({options, value, onChange, placeholder = "Select an opt
             </button>
 
             {isOpen && (
-                <div className="absolute w-full h-auto top-14 overflow-hidden rounded-xl border border-[#D7DFEA]">
+                <div className="relative top-2 bg-white w-full h-auto overflow-hidden rounded-xl border border-[#D7DFEA]">
                     {options.map((item) => {
                         const isSelected = value?.id === item.id
                         return (

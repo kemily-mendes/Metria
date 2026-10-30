@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AddBalanceRouteImport } from './routes/addBalance'
+import { Route as TransactionHistoryRouteImport } from './routes/transactionHistory'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const AddBalanceRoute = AddBalanceRouteImport.update({
   path: '/addBalance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TransactionHistoryRoute = TransactionHistoryRouteImport.update({
+  id: '/transactionHistory',
+  path: '/transactionHistory',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/addBalance': typeof AddBalanceRoute
+  '/transactionHistory': typeof TransactionHistoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/addBalance': typeof AddBalanceRoute
+  '/transactionHistory': typeof TransactionHistoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/addBalance': typeof AddBalanceRoute
+  '/transactionHistory': typeof TransactionHistoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/addBalance'
+  fullPaths: '/' | '/addBalance' | '/transactionHistory'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/addBalance'
-  id: '__root__' | '/' | '/addBalance'
+  to: '/' | '/addBalance' | '/transactionHistory'
+  id: '__root__' | '/' | '/addBalance' | '/transactionHistory'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddBalanceRoute: typeof AddBalanceRoute
+  TransactionHistoryRoute: typeof TransactionHistoryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AddBalanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/transactionHistory': {
+      id: '/transactionHistory'
+      path: '/transactionHistory'
+      fullPath: '/transactionHistory'
+      preLoaderRoute: typeof TransactionHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddBalanceRoute: AddBalanceRoute,
+  TransactionHistoryRoute: TransactionHistoryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
