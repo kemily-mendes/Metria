@@ -35,7 +35,7 @@ export function Dropdown({options, value, onChange, placeholder = "Select an opt
             </button>
 
             {isOpen && (
-                <div className="relative top-2 bg-white w-full h-auto overflow-hidden rounded-xl border border-[#D7DFEA]">
+                <div className="absolute top-14 z-50 bg-white w-full h-auto overflow-hidden rounded-xl border border-[#D7DFEA]">
                     {options.map((item) => {
                         const isSelected = value?.id === item.id
                         return (

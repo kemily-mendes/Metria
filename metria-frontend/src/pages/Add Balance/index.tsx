@@ -16,7 +16,9 @@ const balanceSourcesMock: DropdownOption[] = [
     { id: 1, label: "Carteira" },
     { id: 2, label: "Conta corrente" },
     { id: 3, label: "Conta poupança" },
-    { id: 4, label: "Caixinhas, cofrinhos ou porquinhos" }
+    { id: 5, label: "Caixinhas" },
+    { id: 6, label: "Cofrinhos" },
+    { id: 7, label: "Porquinhos" }
 ];
 
 export function AddBalance() {
